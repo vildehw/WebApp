@@ -3,6 +3,7 @@ const form = document.getElementById("projectForm")
 const projectContainer = document.getElementById("article_container") 
 const projects = [] 
 
+console.log(projects)
 form.addEventListener("submit", async (event) => {
   event.preventDefault() 
 
@@ -11,10 +12,10 @@ form.addEventListener("submit", async (event) => {
     title: event.target.elements.title.value,
     description: event.target.elements.description.value,
     createdAt: event.target.elements.date.value, 
-    imgURL: event.target.elements.imglink.value || "placeholder.jpeg"
+    imgURL: event.target.elements.imglink.value 
   }
 
-  projects.push(newProject)
+  newProject? projects.push(newProject) : null
   updateProjects() 
 
   // sende til serveren
@@ -29,9 +30,9 @@ form.addEventListener("submit", async (event) => {
 
     // Håndterer serverresponsen
     if (response.status === 201) {
-      console.log("Vane lagret på serveren")
+      console.log("Lagret på serveren")
     } else {
-      console.error("Feil ved lagring av vane på serveren")
+      console.error("Feil ved lagring på serveren")
     }
   } catch (error) {
     console.error("Feil ved sending av data til serveren:", error)
@@ -43,9 +44,11 @@ function updateProjects() {
   projectContainer.innerHTML = ""; 
 
   for (const project of projects) {
+
+    if(project){
     const projectHTML = `
       <article>
-        <img src="${project.imgURL}" alt="${project.title}">
+        <img src="placeholder.jpeg" alt="${project.title}">
         <div class="article_content">
           <h3>${project.title}</h3>
           <p>${project.createdAt}</p>
@@ -54,6 +57,7 @@ function updateProjects() {
       </article>
     `
     projectContainer.innerHTML += projectHTML
+    } 
   }
 }
 
@@ -70,3 +74,4 @@ function loadFromApi() {
 }
 
 loadFromApi()
+
