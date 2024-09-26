@@ -149,8 +149,6 @@ main{
   background-color: var(--dark); 
 }
 
-
-
 #article_container{
   display: flex;
   flex-direction: row; 
@@ -219,15 +217,12 @@ article{
   text-align: left;
 }
 
-
-
 #contact_button{
   max-width: 200px;
   height: 100px;
   margin: 2rem auto;
   border: 3px solid var(--green);
   font-size: 18px; 
-  
 }
 
 #contact_button:hover{
@@ -264,7 +259,5 @@ article{
   #form_container h2{
     text-align: center; 
   }
-
-
 }
 

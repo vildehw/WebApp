@@ -10,7 +10,7 @@ export default function Contact({ student }: ContactProps) {
     const { email } = student;
 
     const showEmail = () => {
-        alert(`Studentens e-post er: ${email}`);
+        alert(`email: ${email}`);
     };
 
     const [name, setName] = useState("");
