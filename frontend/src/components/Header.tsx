@@ -1,4 +1,3 @@
-// Header.tsx
 import { StudentType } from "./types";
 
 type HeaderProps = {
