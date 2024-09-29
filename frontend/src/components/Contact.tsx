@@ -5,9 +5,9 @@ type ContactProps = {
     student: StudentType;
 };
 
-export default function Contact({ student }: ContactProps) {
+export default function Contact(props: ContactProps) {
     
-    const { email } = student;
+    const { email } = props.student;
 
     const showEmail = () => {
         alert(`email: ${email}`);
